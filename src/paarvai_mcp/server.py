@@ -94,9 +94,8 @@ def create_server() -> Server:
     return server
 
 
-async def main():
-    """Main entry point for the MCP server."""
-    import asyncio
+async def async_main():
+    """Async main entry point for the MCP server."""
     from mcp.server.stdio import stdio_server
     
     try:
@@ -116,6 +115,11 @@ async def main():
         sys.exit(1)
 
 
-if __name__ == "__main__":
+def main():
+    """Synchronous entry point that runs the async main."""
     import asyncio
-    asyncio.run(main())
+    asyncio.run(async_main())
+
+
+if __name__ == "__main__":
+    main()
