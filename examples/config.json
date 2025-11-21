@@ -2,12 +2,9 @@
   "mcpServers": {
     "paarvai": {
       "command": "uvx",
-      "args": ["paarvai-mcp-server"],
+      "args": ["--from", "git+https://github.com/yourusername/paarvai-mcp-server", "paarvai-mcp"],
       "env": {
-        "PAARVAI_API_KEY": "sk_live_your_api_key_here",
-        "PAARVAI_API_URL": "https://api.paarvai.com",
-        "PAARVAI_TIMEOUT": "30",
-        "PAARVAI_LOG_LEVEL": "INFO"
+        "PAARVAI_API_KEY": "your-api-key-here"
       }
     }
   }
