@@ -1,0 +1,114 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "paarvai-mcp-server"
+version = "0.1.0"
+description = "AWS infrastructure knowledge graph MCP server with relationship inference and security analysis"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Paarvai", email = "hello@paarvai.com"}
+]
+maintainers = [
+    {name = "Paarvai", email = "hello@paarvai.com"}
+]
+keywords = [
+    "mcp",
+    "model-context-protocol",
+    "aws",
+    "cloud",
+    "infrastructure",
+    "claude",
+    "anthropic",
+    "devops",
+    "security",
+    "knowledge-graph"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=0.1.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://paarvai.com"
+Documentation = "https://docs.paarvai.com"
+Repository = "https://github.com/paarvai/mcp-server"
+Issues = "https://github.com/paarvai/mcp-server/issues"
+Changelog = "https://github.com/paarvai/mcp-server/releases"
+
+[project.scripts]
+paarvai-mcp-server = "paarvai_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/paarvai_mcp"]
+
+[tool.hatch.version]
+path = "src/paarvai_mcp/__init__.py"
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501", # line too long (handled by black)
+    "B008", # do not perform function calls in argument defaults
+]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "--cov=paarvai_mcp --cov-report=term-missing --cov-report=html"
