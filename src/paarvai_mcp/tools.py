@@ -15,8 +15,8 @@ TOOLS = [
             "properties": {
                 "resource_type": {
                     "type": "string",
-                    "description": "Resource type: EC2, RDS, VPC, Subnet, SecurityGroup, IAMRole, RouteTable",
-                    "enum": ["EC2", "RDS", "VPC", "Subnet", "SecurityGroup", "IAMRole", "RouteTable"]
+                    "description": "Resource type to filter by (optional - omit to see all types)",
+                    "enum": ["EC2", "RDS", "VPC", "Subnet", "SecurityGroup", "RouteTable", "IAMRole", "S3Bucket", "Lambda", "DynamoDBTable", "SNSTopic", "SQSQueue"]
                 },
                 "region": {"type": "string", "description": "AWS region"},
                 "tags": {"type": "object", "description": "Tag filters"},
