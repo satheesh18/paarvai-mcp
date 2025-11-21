@@ -18,9 +18,10 @@ Add to your MCP client configuration:
   "mcpServers": {
     "paarvai": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/yourusername/paarvai-mcp-server", "paarvai-mcp"],
+      "args": ["--from", "git+https://github.com/satheesh18/paarvai-mcp", "paarvai-mcp"],
       "env": {
-        "PAARVAI_API_KEY": "your-api-key-here"
+        "PAARVAI_API_KEY": "your-api-key-here",
+        "PAARVAI_API_URL": "https://api.paarvai.app"
       }
     }
   }
