@@ -4,15 +4,14 @@ MCP server for querying AWS infrastructure through Paarvai.
 
 ## Setup
 
-Get your API key from [paarvai.app](https://paarvai.app):
+1. Get your API key from [paarvai.app](https://paarvai.app)
 
-1. Sign up and connect your AWS account
-2. Generate an API key from the dashboard
+2. Set environment variable:
+```bash
+export PAARVAI_API_KEY="your-api-key-here"
+```
 
-## Configuration
-
-Add to your MCP client configuration:
-
+3. Add to your MCP client configuration:
 ```json
 {
   "mcpServers": {
@@ -20,7 +19,7 @@ Add to your MCP client configuration:
       "command": "uvx",
       "args": ["--from", "git+https://github.com/satheesh18/paarvai-mcp", "paarvai-mcp"],
       "env": {
-        "PAARVAI_API_KEY": "your-api-key-here",
+        "PAARVAI_API_KEY": "${PAARVAI_API_KEY}",
         "PAARVAI_API_URL": "https://api.paarvai.app"
       }
     }
