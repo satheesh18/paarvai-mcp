@@ -12,10 +12,10 @@
 1. **Install the package**:
    ```bash
    # Using uvx (recommended)
-   uvx paarvai-mcp-server
+   uvx paarvai-mcp
    
    # Or using pip
-   pip install paarvai-mcp-server
+   pip install paarvai-mcp
    ```
 
 2. **Get your API key**:
@@ -37,7 +37,7 @@
      "mcpServers": {
        "paarvai": {
          "command": "uvx",
-         "args": ["paarvai-mcp-server"],
+         "args": ["paarvai-mcp"],
          "env": {
            "PAARVAI_API_KEY": "sk_live_your_api_key_here"
          }

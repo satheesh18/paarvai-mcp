@@ -17,7 +17,7 @@ export PAARVAI_API_KEY="your-api-key-here"
   "mcpServers": {
     "paarvai": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/satheesh18/paarvai-mcp-server", "paarvai-mcp-server"],
+      "args": ["--from", "git+https://github.com/satheesh18/paarvai-mcp", "paarvai-mcp"],
       "env": {
         "PAARVAI_API_KEY": "${PAARVAI_API_KEY}",
         "PAARVAI_API_URL": "https://api.paarvai.app"
